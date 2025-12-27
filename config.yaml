@@ -1,0 +1,60 @@
+# Claude Chatbot POC Configuration
+
+# Claude API Settings
+claude:
+  model: "claude-sonnet-4-5-20250929"
+  max_tokens: 8192
+  extended_thinking: true
+
+# Context Management
+context:
+  max_tokens: 20000  # Maximum tokens to keep in context
+  token_estimation_ratio: 4  # chars per token (rough estimate)
+
+# File Upload Settings
+files:
+  max_size_mb: 50
+  allowed_extensions:
+    - pdf
+    - txt
+    - md
+    - py
+    - js
+    - json
+    - csv
+    - png
+    - jpg
+    - jpeg
+    - webp
+
+# UI Settings
+ui:
+  page_title: "Claude Chatbot POC"
+  page_icon: "🤖"
+  show_thinking_by_default: false
+  auto_title_generation: false  # Use first message preview for now
+
+# Cost Tracking
+costs:
+  input_cost_per_million: 3.00
+  output_cost_per_million: 15.00
+  show_cost_estimate: true
+
+# Database
+database:
+  path: "data/chats.db"
+
+# Storage
+storage:
+  uploads_dir: "data/uploads"
+
+# Code Execution
+code_execution:
+  enabled: true
+  max_iterations: 10  # Increased for complex multi-file projects
+  timeout_seconds: 3600  # 1 hour (max for free tier) - prevents sandbox expiration
+  
+  ui:
+    show_thinking: true
+    show_code_attempts: true
+    show_execution_details: true
